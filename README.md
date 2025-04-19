@@ -3,33 +3,33 @@ Deploying Open-WebUI with Ollama using Docker Compose CPU-only setup.
 Here's an implementation guide:
 
 ## 🚀 Quick Start
-1. **Clone the repo**
+1. **Starting Services**
 ```bash
-git clone https://github.com/ntalekt/deepseek-r1-docker-compose.git
+git clone https://github.com/mrkimoz/deepseek.git
+cd deepseek
+docker-compose up -d
 ```
-2. **Start Services**
+
+2. **Verify Installation**
 ```bash
-docker compose up -d
-```
-3. **Verify Installation**
-```bash
-docker compose ps
+docker-compose ps
 ```
 Expected Output:
-| NAME | COMMAND | SERVICE | STATUS | PORTS |
-|------|---------|---------|--------|-------|
-| ollama | "/bin/ollama serve" | ollama | running | 0.0.0.0:11434->11434/tcp |
-| open-webui | "bash start.sh" | open-webui | running | 0.0.0.0:3000->8080/tcp |
+   Name                Command                      State                              Ports
+----------------------------------------------------------------------------------------------------------------
+ollama       /usr/bin/bash /entrypoint.sh   Up                      0.0.0.0:11434->11434/tcp,:::11434->11434/tcp
+open-webui   bash start.sh                  Up (health: starting)   0.0.0.0:3000->8080/tcp,:::3000->8080/tcp
+
 
 4. **Check Logs**
 ```bash
-docker compose logs -f ollama
-docker compose logs -f open-webui
+docker-compose logs -f ollama
+docker-compose logs -f open-webui
 ```
 
-5. **Uninstall**
+5. **Stoping Services**
 ```bash
-docker compose down --volumes --rmi all
+docker-compose down
 ```
 
 ## 🌐 Access the Web UI

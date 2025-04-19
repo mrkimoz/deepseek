@@ -18,24 +18,13 @@ cd deepseek
 docker-compose up -d
 ```
 
-2. **Verify Installation**
-```bash
-docker-compose ps
-```
-Expected Output:
-   Name                Command                      State                              Ports
-----------------------------------------------------------------------------------------------------------------
-ollama       /usr/bin/bash /entrypoint.sh   Up                      0.0.0.0:11434->11434/tcp,:::11434->11434/tcp
-open-webui   bash start.sh                  Up (health: starting)   0.0.0.0:3000->8080/tcp,:::3000->8080/tcp
-
-
-4. **Check Logs**
+2. **Check Logs**
 ```bash
 docker-compose logs -f ollama
 docker-compose logs -f open-webui
 ```
 
-5. **Stoping Services**
+3. **Stoping Services**
 ```bash
 docker-compose down
 ```
